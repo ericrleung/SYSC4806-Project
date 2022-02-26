@@ -12,39 +12,14 @@ import java.util.Collections;
 
 @Controller
 public class WebController {
-//    @Autowired
-//    AddressRepository addressRepository;
-//    @GetMapping("/books")
-//    public String address(Model model) {
-//        ArrayList<AddressBook> books = (ArrayList<AddressBook>) addressRepository.findAll();
-//        model.addAttribute("books", books);
-//        return "books";
-//    }
+    @Autowired
+    RestaurantRepository restaurantRepository;
 
-    @GetMapping("/restaurant")
-    public String bookbuddies(Model model, @RequestParam(name="restaurantid", required=true) Long id) {
-//        ArrayList<AddressBook> books = (ArrayList<AddressBook>) addressRepository.findAllById(Collections.singleton(id));
-//
-//        for(BuddyInfo a : books.get(0).getBuddies()){System.out.println(a);}
-//
-//        model.addAttribute("buddies", books.get(0).getBuddies());
-        return " "; //return restaurant object page
+    @GetMapping("/")
+    public String restaurant(Model model) {
+        ArrayList<Restaurant> restaurants = (ArrayList<Restaurant>) restaurantRepository.findAll();
+        model.addAttribute("restaurants", restaurants);
+        return "index"; //return landing page
     }
-
-//    @GetMapping("/result")
-//    public String greetingSubmit(Model model) {
-//        return "result";
-//    }
-//
-//    @GetMapping("/createbooks")
-//    public String greetingForm(Model model) {
-//        model.addAttribute("book", new AddressBook());
-//        return "createbooks";
-//    }
-//
-//    @PostMapping("/addContact")
-//    public String addContact(AddressBook book) {
-//        book.addBuddy(new BuddyInfo());
-//        return "createbooks :: contacts"; // returning the updated section
-//    }
+    
 }
