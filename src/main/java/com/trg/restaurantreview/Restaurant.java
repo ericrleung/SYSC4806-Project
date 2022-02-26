@@ -5,8 +5,8 @@ import java.util.*;
 @Entity
 public class Restaurant {
     @Id
-    @GeneratedValue
-    private Integer id;
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Long id;
     private String name;
     private String address;
     private String phoneNumber;
@@ -24,10 +24,6 @@ public class Restaurant {
         this.phoneNumber = phoneNumber;
         this.description = description;
         this.reviews = new ArrayList<>();
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public String getName() {
