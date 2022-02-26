@@ -1,10 +1,21 @@
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class RestaurantReview {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Long id;
 
     private int rating;
     private String message;
     private String reviewerName;
 
-    RestaurantReview(int rating, String message, String reviewerName){
+    public RestaurantReview() {} //javabeans convention
+
+    public RestaurantReview(int rating, String message, String reviewerName){
         this.rating = rating;
         this.message = message;
         this.reviewerName = reviewerName;
