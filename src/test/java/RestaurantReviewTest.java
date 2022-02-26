@@ -4,7 +4,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.Assert.assertEquals;
 
-@SpringBootTest
 public class RestaurantReviewTest {
 
     @Test
