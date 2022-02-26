@@ -11,7 +11,7 @@ public class Restaurant {
     private String address;
     private String phoneNumber;
     private String description;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private List<RestaurantReview> reviews;
 
     public Restaurant() {
