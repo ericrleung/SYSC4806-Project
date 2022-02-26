@@ -12,6 +12,7 @@ import java.util.Collections;
 
 @Controller
 public class WebController {
+
     @Autowired
     RestaurantRepository restaurantRepository;
 
@@ -19,7 +20,7 @@ public class WebController {
     public String restaurant(Model model) {
         ArrayList<Restaurant> restaurants = (ArrayList<Restaurant>) restaurantRepository.findAll();
         model.addAttribute("restaurants", restaurants);
-        return "index"; //return landing page
+        return "displayRestaurants"; //return to landing page
     }
     
 }
