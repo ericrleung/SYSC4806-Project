@@ -26,6 +26,7 @@ public class WebController {
 
     @GetMapping("/createrestaurant")
     public String createRestaurant(Model model) {
+        model.addAttribute("restaurant", new Restaurant());
         return "createRestaurant";
     }
 
