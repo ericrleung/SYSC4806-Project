@@ -22,5 +22,18 @@ public class WebController {
         model.addAttribute("restaurants", restaurants);
         return "displayRestaurants"; //return to landing page
     }
+
+    @GetMapping("/createrestaurant")
+    public String createRestaurant(Model model) {
+        return "createRestaurant";
+    }
+
+    @GetMapping("/restaurantreviews")
+    public String restaurantReviews(Model model, @RequestParam(name="restaurantid", required=true) Long id) {
+        Restaurant r =  restaurantRepository.findById(id).orElse(null);
+
+        model.addAttribute("reviews", r.getReviews());
+        return "restaurantReviews";
+    }
     
 }
