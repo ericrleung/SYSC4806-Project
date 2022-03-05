@@ -33,7 +33,15 @@ public class WebController {
         Restaurant r =  restaurantRepository.findById(id).orElse(null);
 
         model.addAttribute("reviews", r.getReviews());
+        model.addAttribute("restaurant", r);
         return "restaurantReviews";
     }
-    
+
+    @GetMapping("/createreview")
+    public String createReview(Model model, @RequestParam(name="restaurantid", required=true) Long id) {
+        Restaurant r =  restaurantRepository.findById(id).orElse(null);
+
+        model.addAttribute("restaurant", r);
+        return "createReview";
+    }
 }
