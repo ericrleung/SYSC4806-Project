@@ -2,17 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Trustworthy Restaurant Reviews</title>
-   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Trustworthy Restaurant Reviews</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 <h1>Restaurant Reviews</h1>
+<input type="button" value="Create Restaurant" onclick="location.href = /createRestaurant">
+</input>
 <table class = "table table-striped">
     <tr>
         <th> Restaurants </th>
     </tr>
     <tr th:each="restaurant : ${restaurants}">
-        <td th:text="${restaurant.getName() + ' ' + restaurant.getId()}"/>
+        <td>
+            <a th:href="@{/restaurantreviews?restaurantid={id}(id=${restaurant.getId()})}" th:text="${restaurant.getName()}"/>
+        </td>
     </tr>
 
 </table>
