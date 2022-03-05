@@ -25,3 +25,6 @@ The goal of this application is to create a website where users can publish and 
 - Setup CI/CD and Heroku
 - Create Basic Views for Pages
 - Setup Kanban
+
+# Database Schema
+<img width="220" alt="Screen Shot 2022-03-05 at 3 11 35 PM" src="https://user-images.githubusercontent.com/46545797/156898599-1501cb2f-1e25-4576-b7c3-cec4f35b6ff3.png">
