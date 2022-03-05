@@ -3,11 +3,29 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="${restaurant.getName()} + ' Reviews'"></title>
 </head>
 <body>
+<h1 th:text="${restaurant.getName()} + ' Reviews'"></h1>
+<h3 th:text="'Address: ' + ${restaurant.getAddress()}"/>
+<h3 th:text="'Phone Number: ' + ${restaurant.getPhoneNumber()}"/>
+<h3 th:text="'Description: ' + ${restaurant.getDescription()}"/>
 <button>
     <a th:href="@{/createreview?restaurantid={id}(id=${restaurant.getId()})}"/>Create Review</a>
 </button>
+<button>
+    <a th:href="@{/}"/>Back</a>
+</button>
+
+<table class = "table table-striped" title>
+    <caption>Reviews</caption>
+    <tr th:each="review : ${reviews}">
+        <td>
+            <p th:text="'Name: ' + ${review.getReviewerName()}"/>
+            <p th:text="'Rating: ' + ${review.getRating()}"/>
+            <p th:text="'Message: ' + ${review.getMessage()}"/>
+        </td>
+    </tr>
+</table>
 </body>
 </html>
