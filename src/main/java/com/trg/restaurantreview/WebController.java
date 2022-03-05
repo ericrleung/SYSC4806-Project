@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -25,7 +26,14 @@ public class WebController {
 
     @GetMapping("/createrestaurant")
     public String createRestaurant(Model model) {
+        model.addAttribute("restaurant", new Restaurant());
         return "createRestaurant";
+    }
+
+    @PostMapping("/createrestaurant")
+    public String restaurantCreated(@ModelAttribute Restaurant restaurant, Model model){
+        restaurantRepository.save(restaurant);
+        return "restaurantCreated";
     }
 
     @GetMapping("/restaurantreviews")
