@@ -1,3 +1,4 @@
+package com.trg.restaurantreview;
 
 import com.trg.restaurantreview.RestaurantReview;
 import org.junit.jupiter.api.Test;
