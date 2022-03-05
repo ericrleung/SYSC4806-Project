@@ -1,3 +1,5 @@
+package com.trg.restaurantreview;
+
 import com.trg.restaurantreview.Restaurant;
 import com.trg.restaurantreview.RestaurantReview;
 import junit.framework.TestCase;
