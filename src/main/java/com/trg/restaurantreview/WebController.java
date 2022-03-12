@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 @Controller
 public class WebController {
@@ -64,5 +65,21 @@ public class WebController {
         restaurantRepository.save(restaurant);
         model.addAttribute("restaurant", restaurant);
         return "reviewCreated";
+        
+    @GetMapping("/editreview")
+    public String editReview(Model model, @RequestParam(name="restaurantid", required=true) Long restaurantid,
+                             @RequestParam(name="reviewid", required=true) Long reviewid) {
+        Restaurant restaurant =  restaurantRepository.findById(restaurantid).orElse(null);
+        model.addAttribute("restaurant", restaurant);
+
+        List<RestaurantReview> myReviews = restaurant.getReviews();
+
+        for (RestaurantReview review: myReviews){
+            if (review.getId() == reviewid){
+                model.addAttribute("review", review);
+                break;
+            }
+        }
+        return "editReview";
     }
 }
