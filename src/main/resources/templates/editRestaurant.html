@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Edit Restaurant</h1>
-<form name="editRestaurant" action="#" th:action="@{/editingrestaurant}" th:object="${restaurant}" method="post" onsubmit="return validateForm()">
+<form name="editRestaurant" action="#" th:action="@{/restaurantreviews?restaurantid={id}(id=${restaurant.getId()})}" th:object="${restaurant}" method="post" onsubmit="return validateForm()">
     <input type="hidden" name="restaurantID" th:value="${restaurant.getId()}">
     <p>Name: <input type="text" name="name" th:field="*{name}" required/></p>
     <p>Address: <input id="address" type="text" name="address" th:field="*{address}"/></p>
