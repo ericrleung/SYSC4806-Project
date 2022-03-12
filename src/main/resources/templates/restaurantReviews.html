@@ -11,6 +11,9 @@
 <h3 th:text="'Phone Number: ' + ${restaurant.getPhoneNumber()}"/>
 <h3 th:text="'Description: ' + ${restaurant.getDescription()}"/>
 <button>
+    <a th:href="@{/editrestaurant?restaurantid={id}(id=${restaurant.getId()})}"/>Edit Restaurant Info</a>
+</button>
+<button>
     <a th:href="@{/createreview?restaurantid={id}(id=${restaurant.getId()})}"/>Create Review</a>
 </button>
 <button>

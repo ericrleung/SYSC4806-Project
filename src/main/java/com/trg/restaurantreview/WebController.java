@@ -84,6 +84,48 @@ public class WebController {
         return "editReview";
     }
 
+
+    @GetMapping("/editrestaurant")
+    public String editRestaurant(Model model, @RequestParam(name="restaurantid", required=true) Long restaurantid) {
+        Restaurant restaurant =  restaurantRepository.findById(restaurantid).orElse(null);
+        model.addAttribute("restaurant", restaurant);
+
+        return "editRestaurant";
+    }
+
+    @PostMapping("/restaurantreviews")
+    public String editingRestaurant(Model model, @RequestParam(name="restaurantid", required=true) Long restaurantID,
+                              @RequestParam(required = false) String name, @RequestParam(required = false) String phoneNumber,
+                              @RequestParam(required = false) String address, @RequestParam(required = false) String description,
+                                    @RequestParam(required = false) String reviewerName,@RequestParam(required = false) Integer rating,
+                                    @RequestParam(required = false) String message, @RequestParam(required = false) Long reviewID){
+        Restaurant restaurant = restaurantRepository.findById(restaurantID).orElse(null);
+
+        if (name != null) {
+        restaurant.setName(name);
+        restaurant.setPhoneNumber(phoneNumber);
+        restaurant.setAddress(address);
+        restaurant.setDescription(description);
+    } else {
+        List<RestaurantReview> myReviews = restaurant.getReviews();
+
+        for (RestaurantReview review: myReviews){
+            if (review.getId() == reviewID){
+                review.setMessage(message);
+                review.setReviewerName(reviewerName);
+                review.setRating(rating);
+            }
+        }
+    }
+        restaurantRepository.save(restaurant);
+
+        if(restaurant.getReviews() != null) {
+            model.addAttribute("reviews", restaurant.getReviews());
+        }
+        model.addAttribute("restaurant", restaurant);
+        return "restaurantReviews";
+    }
+
     @PostMapping("/deletereview")
     public String deleteReview(Model model, @RequestParam(name="restaurantid", required=true) Long restaurantid,
                                @RequestParam(name="reviewid", required=true) Long reviewid) {
@@ -108,4 +150,5 @@ public class WebController {
         restaurantRepository.deleteById(restaurantid);
         return "displayRestaurants";
     }
+
 }
