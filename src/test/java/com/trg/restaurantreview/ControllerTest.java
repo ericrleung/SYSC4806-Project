@@ -53,16 +53,7 @@ public class ControllerTest {
 
     @Test
     public void testEditRestaurant() throws Exception {
-        this.mvc.perform((post("/createrestaurant")
-                .param("name", "sampleRestaurant")
-                .param("address", "1125 ColonelBy Drive")
-                .param("phoneNumber", "613-123-4567")));
-        this.mvc.perform((post("/editrestaurant")
-                        .param("addressBookID", "1")
-                        .param("buddyInfoName", "khalil")
-                        .param("buddyInfoPhoneNumber", "613")))
-                .andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString("added Buddy")));
+
     }
 
 }
