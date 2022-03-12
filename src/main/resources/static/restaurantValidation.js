@@ -1,11 +1,13 @@
-var submitBtn = document.getElementById("submit");
 var addressField = document.getElementById("address");
 var phoneField = document.getElementById("phoneNum");
 
 function validateForm() {
-  let x = document.forms["myForm"]["fname"].value;
-  if (x == "") {
-    alert("Name must be filled out");
+  if (addressField.value == "") {
+    alert("Address Should have format \"{number} {street name} Optional:{City/Country/Postal Code}\"");
+    return false;
+  }
+  else if(phoneField.value == ""){
+    alert("Phone Number Should follow format \"(XXX)-(XXX)-(XXXX)\"");
     return false;
   }
 }

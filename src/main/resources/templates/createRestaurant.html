@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Add Restaurant</h1>
-<form action="#" th:action="@{/createrestaurant}" th:object="${restaurant}" method="post">
+<form name="AddRestaurant" action="#" th:action="@{/createrestaurant}" th:object="${restaurant}" method="post">
     <p>Name: <input type="text" th:field="*{name}" required/></p>
     <p>Address: <input id="address" type="text" th:field="*{address}"/></p>
     <p>Phone Number: <input id="phoneNum" type="text" th:field="*{phoneNumber}"/></p>
