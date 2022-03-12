@@ -58,7 +58,7 @@ public class WebController {
 
     @PostMapping("/addingReview")
     public String addingReview(Model model, @RequestParam long restaurantID,
-                             @RequestParam String message, @RequestParam int rating, @RequestParam String reviewerName){
+                             @RequestParam String message, @RequestParam int rating, @RequestParam String reviewerName) {
         RestaurantReview newReview = new RestaurantReview(rating, message, reviewerName);
         Restaurant restaurant = restaurantRepository.findById(restaurantID);
         restaurant.addReview(newReview);
@@ -66,7 +66,7 @@ public class WebController {
         model.addAttribute("restaurant", restaurant);
         return "reviewCreated";
     }
-
+        
     @GetMapping("/editreview")
     public String editReview(Model model, @RequestParam(name="restaurantid", required=true) Long restaurantid,
                              @RequestParam(name="reviewid", required=true) Long reviewid) {
