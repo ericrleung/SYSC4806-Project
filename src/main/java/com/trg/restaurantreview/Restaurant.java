@@ -74,4 +74,19 @@ public class Restaurant {
         return this.reviews;
     }
 
+    public double getRating() {
+        double rating = 0;
+        for(RestaurantReview r: this.reviews) {
+            rating += r.getRating();
+        }
+        if(reviews.size() > 0) {
+            rating = rating / reviews.size();
+
+            int scale = (int) Math.pow(10, 1);
+            rating = (double) Math.round(rating * scale) / scale;
+        }
+
+        return rating;
+    }
+
 }
