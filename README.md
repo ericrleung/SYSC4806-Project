@@ -3,6 +3,8 @@ Software engineering lab group project.
 
 The goal of this application is to create a website where users can publish and view reviews for different restaurants. Reviews can be added to a restaurant, and given a rating with comments. New restaurants can also be added to the website for review.
 
+Link to website: https://resto-reviewz.herokuapp.com/
+
 # Project State
 ## 2022-03-12
 - Added ability to remove and edit restaurants/reviews
