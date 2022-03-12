@@ -92,33 +92,20 @@ public class WebController {
         return "editRestaurant";
     }
 
-    //public String restaurantReviews(Model model, @RequestParam(name="restaurantid", required=true) Long restaurantID)
     @PostMapping("/restaurantreviews")
     public String editingRestaurant(Model model, @RequestParam(name="restaurantid", required=true) Long restaurantID,
-                              @RequestParam String name, @RequestParam String phoneNumber,
-                              @RequestParam String address, @RequestParam String description){
-
+                              @RequestParam(required = false) String name, @RequestParam(required = false) String phoneNumber,
+                              @RequestParam(required = false) String address, @RequestParam(required = false) String description,
+                                    @RequestParam(required = false) String reviewerName,@RequestParam(required = false) Integer rating,
+                                    @RequestParam(required = false) String message, @RequestParam(required = false) Long reviewID){
         Restaurant restaurant = restaurantRepository.findById(restaurantID).orElse(null);
+
+        if (name != null) {
         restaurant.setName(name);
         restaurant.setPhoneNumber(phoneNumber);
         restaurant.setAddress(address);
         restaurant.setDescription(description);
-
-        restaurantRepository.save(restaurant);
-
-        if(restaurant.getReviews() != null) {
-            model.addAttribute("reviews", restaurant.getReviews());
-        }
-        model.addAttribute("restaurant", restaurant);
-        return "restaurantReviews";
-    }
-
-    @PostMapping("/reviewEdited")
-    public String editingReview(Model model, @RequestParam long restaurantID,
-                                @RequestParam long reviewID,
-                                @RequestParam String message, @RequestParam int rating, @RequestParam String reviewerName){
-
-        Restaurant restaurant = restaurantRepository.findById(restaurantID);
+    } else {
         List<RestaurantReview> myReviews = restaurant.getReviews();
 
         for (RestaurantReview review: myReviews){
@@ -128,10 +115,13 @@ public class WebController {
                 review.setRating(rating);
             }
         }
-
+    }
         restaurantRepository.save(restaurant);
 
-
-        return "reviewEdited";
+        if(restaurant.getReviews() != null) {
+            model.addAttribute("reviews", restaurant.getReviews());
+        }
+        model.addAttribute("restaurant", restaurant);
+        return "restaurantReviews";
     }
 }
