@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Trustworthy Restaurant Reviews</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Review Added</h1>
+<a th:href="@{/createreview?restaurantid={id}(id=${restaurant.getId()})}"/>
+<a href="/">Return to Home</a>
+</body>
+</html>

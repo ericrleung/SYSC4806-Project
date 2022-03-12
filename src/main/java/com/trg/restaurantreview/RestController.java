@@ -16,15 +16,6 @@ public class RestController {
     @Autowired
     private RestaurantReviewRepository restaurantReviewRepository;
 
-    @PostMapping("/addingReview")
-    public void addingReview(@RequestParam long restaurantID,
-                             @RequestParam String message, @RequestParam int rating, @RequestParam String reviewerName){
-        RestaurantReview newReview = new RestaurantReview(rating, message, reviewerName);
-        Restaurant restaurant = restaurantRepository.findById(restaurantID);
-        restaurant.addReview(newReview);
-        restaurantRepository.save(restaurant);
-    }
-
     @PostMapping("/editingreview")
     public void editingReview(@RequestParam long reviewID, @RequestParam long restaurantID,
                              @RequestParam String message, @RequestParam int rating, @RequestParam String reviewerName){
