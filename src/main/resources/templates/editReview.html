@@ -13,7 +13,7 @@
 
 <form action="/editReview" method="post">
 
-    <input type="hidden" name="restaurantID" th:value="${restaurant.id}">
+    <input type="hidden" name="reviewID" th:value="${review.getId()}">
     <p>Reviewer Name: <input type="text" name="reviewerName"/></p>
     <p>Rating: <input type="text" name="rating"></p>
     <p>Message: <input type="text" name="message"/></p>
