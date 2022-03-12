@@ -4,6 +4,15 @@ Software engineering lab group project.
 The goal of this application is to create a website where users can publish and view reviews for different restaurants. Reviews can be added to a restaurant, and given a rating with comments. New restaurants can also be added to the website for review.
 
 # Project State
+## 2022-03-12
+- Added ability to remove and edit restaurants/reviews
+- Fix some redirect issues
+- Add test case for MVC
+- Input validation when creating/editing info
+- Populate fields on edit pages
+- Updated review and restaurant info
+- Average restaurant rating displayed on landing page
+
 ## 2022-03-05
 - Completed all pages for application to function (view restaurant, create restaurant, view restaurant reviews, create review)
 - Database setup and front-end works
