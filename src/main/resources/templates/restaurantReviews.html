@@ -24,6 +24,9 @@
             <p th:text="'Name: ' + ${review.getReviewerName()}"/>
             <p th:text="'Rating: ' + ${review.getRating()}"/>
             <p th:text="'Message: ' + ${review.getMessage()}"/>
+            <button>
+                <a th:href="@{/editreview?restaurantid={id}(id=${restaurant.getId()})}"/>Edit Review</a>
+            </button>
         </td>
     </tr>
 </table>

@@ -47,4 +47,7 @@ public class RestaurantReview {
         this.reviewerName = reviewerName;
     }
 
+    public Long getId() {
+        return id;
+    }
 }
