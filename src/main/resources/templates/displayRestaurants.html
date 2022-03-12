@@ -21,6 +21,12 @@
         <td>
             <p th:text="${restaurant.getRating()}"/>
         </td>
+        <td>
+            <form action="/deleterestaurant" method="post">
+                <input type="hidden" name="restaurantid" th:value="${restaurant.id}">
+                <input type="submit" name="deleteButton" value="Delete Restaurant"></input>
+            </form>
+        </td>
     </tr>
 
 </table>
