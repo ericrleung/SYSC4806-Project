@@ -54,4 +54,14 @@ public class WebController {
         model.addAttribute("restaurant", r);
         return "createReview";
     }
+
+    @PostMapping("/addingReview")
+    public String addingReview(@RequestParam long restaurantID,
+                             @RequestParam String message, @RequestParam int rating, @RequestParam String reviewerName){
+        RestaurantReview newReview = new RestaurantReview(rating, message, reviewerName);
+        Restaurant restaurant = restaurantRepository.findById(restaurantID);
+        restaurant.addReview(newReview);
+        restaurantRepository.save(restaurant);
+        return "reviewCreated";
+    }
 }
