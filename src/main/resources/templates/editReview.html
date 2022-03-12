@@ -8,16 +8,16 @@
 <h1>Editing Review for Restaurant <p th:text="${restaurant.getName()}"></p></h1>
 
 <button>
-    <a th:href="@{/restaurantreviews}"/>Back</a>
+    <a th:href="@{/restaurantreviews?restaurantid={id}(id=${restaurant.getId()})}"/>Back</a>
 </button>
 
 <form name="editReview" action="#" th:action="@{/restaurantreviews?restaurantid={id}(id=${restaurant.getId()})}" method="post" onsubmit="return validateForm()">
 
     <input type="hidden" name="reviewID" th:value="${review.getId()}">
     <input type="hidden" name="restaurantID" th:value="${restaurant.getId()}">
-    <p>Reviewer Name: <input type="text" name="reviewerName"/></p>
-    <p>Rating: <input id="rating" type="text" name="rating"></p>
-    <p>Message: <input type="text" name="message"/></p>
+    <p>Reviewer Name: <input type="text" name="reviewerName" th:value="${review.getReviewerName}"/></p>
+    <p>Rating: <input id="rating" type="text" name="rating" th:value="${review.getRating}"></p>
+    <p>Message: <input type="text" name="message" th:value="${review.getMessage}"/></p>
 
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 
