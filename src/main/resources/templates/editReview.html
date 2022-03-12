@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Review</title>
+</head>
+<body>
+<h1>Editing Review for Restaurant <p th:text="${restaurant.getName()}"></p></h1>
+
+<button>
+    <a th:href="@{/restaurantreviews}"/>Back</a>
+</button>
+
+<form action="/editReview" method="put">
+
+    <input type="hidden" name="reviewID" th:value="${review.getId()}">
+    <input type="hidden" name="restaurantID" th:value="${restaurant.getId()}">
+    <p>Reviewer Name: <input type="text" name="reviewerName"/></p>
+    <p>Rating: <input type="text" name="rating"></p>
+    <p>Message: <input type="text" name="message"/></p>
+
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+
+</form>
+
+
+</body>
+</html>
