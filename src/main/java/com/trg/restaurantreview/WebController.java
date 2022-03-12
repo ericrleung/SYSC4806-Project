@@ -65,7 +65,8 @@ public class WebController {
         restaurantRepository.save(restaurant);
         model.addAttribute("restaurant", restaurant);
         return "reviewCreated";
-        
+    }
+
     @GetMapping("/editreview")
     public String editReview(Model model, @RequestParam(name="restaurantid", required=true) Long restaurantid,
                              @RequestParam(name="reviewid", required=true) Long reviewid) {
