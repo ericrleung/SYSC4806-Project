@@ -11,7 +11,7 @@
     <a th:href="@{/restaurantreviews}"/>Back</a>
 </button>
 
-<form action="/editReview" method="put">
+<form action="/editingreview" method="post">
 
     <input type="hidden" name="reviewID" th:value="${review.getId()}">
     <input type="hidden" name="restaurantID" th:value="${restaurant.getId()}">
