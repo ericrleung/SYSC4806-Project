@@ -102,4 +102,10 @@ public class WebController {
         model.addAttribute("reviews", restaurant.getReviews());
         return "restaurantReviews";
     }
+
+    @PostMapping("/deleterestaurant")
+    public String deleteReview(Model model, @RequestParam(name="restaurantid", required=true) Long restaurantid) {
+        restaurantRepository.deleteById(restaurantid);
+        return "displayRestaurants";
+    }
 }
