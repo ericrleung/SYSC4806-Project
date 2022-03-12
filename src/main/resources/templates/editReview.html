@@ -11,9 +11,10 @@
     <a th:href="@{/restaurantreviews}"/>Back</a>
 </button>
 
-<form action="/editReview" method="post">
+<form action="/editReview" method="put">
 
     <input type="hidden" name="reviewID" th:value="${review.getId()}">
+    <input type="hidden" name="restaurantID" th:value="${restaurant.getId()}">
     <p>Reviewer Name: <input type="text" name="reviewerName"/></p>
     <p>Rating: <input type="text" name="rating"></p>
     <p>Message: <input type="text" name="message"/></p>
