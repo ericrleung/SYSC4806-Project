@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Review Added</h1>
-<a href="/displayRestaurants">Add Another Review</a>
+<a th:href="@{/createreview?restaurantid={id}(id=${restaurant.getId()})}"/>
 <a href="/">Return to Home</a>
 </body>
 </html>
