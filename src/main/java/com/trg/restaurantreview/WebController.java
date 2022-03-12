@@ -83,4 +83,23 @@ public class WebController {
         }
         return "editReview";
     }
+
+    @PostMapping("/deletereview")
+    public String deleteReview(Model model, @RequestParam(name="restaurantid", required=true) Long restaurantid,
+                               @RequestParam(name="reviewid", required=true) Long reviewid) {
+        Restaurant restaurant =  restaurantRepository.findById(restaurantid).orElse(null);
+        model.addAttribute("restaurant", restaurant);
+
+        List<RestaurantReview> myReviews = restaurant.getReviews();
+
+        for (RestaurantReview review: myReviews){
+            if (review.getId() == reviewid){
+                myReviews.remove(review);
+                break;
+            }
+        }
+        restaurantRepository.save(restaurant);
+        model.addAttribute("reviews", restaurant.getReviews());
+        return "restaurantReviews";
+    }
 }
