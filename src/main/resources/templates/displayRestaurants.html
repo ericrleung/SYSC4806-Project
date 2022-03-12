@@ -18,6 +18,9 @@
         <td>
             <a th:href="@{/restaurantreviews?restaurantid={id}(id=${restaurant.getId()})}" th:text="${restaurant.getName()}"/>
         </td>
+        <td>
+            <p th:text="${restaurant.getRating()}"/>
+        </td>
     </tr>
 
 </table>
