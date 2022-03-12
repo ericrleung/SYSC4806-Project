@@ -8,7 +8,8 @@
 <body>
 <h1>Create a Review for Restaurant <p th:text="${restaurant.getName()}"></p></h1>
 
-<form action="/addingReview" method="post">
+<form action="/addingReview" method="post" onsubmit="return validateForm()">
+
 
         <input type="hidden" name="restaurantID" th:value="${restaurant.id}">
         <p>Reviewer Name: <input type="text" name="reviewerName"/></p>
@@ -19,6 +20,6 @@
 
 </form>
 
-
+<script src="reviewValidation.js"></script>
 </body>
 </html>
