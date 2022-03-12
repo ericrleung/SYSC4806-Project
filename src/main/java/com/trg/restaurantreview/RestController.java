@@ -20,7 +20,6 @@ public class RestController {
     public void editingReview(@RequestParam long reviewID, @RequestParam long restaurantID,
                              @RequestParam String message, @RequestParam int rating, @RequestParam String reviewerName){
 
-        System.out.println("got here");
         Restaurant restaurant = restaurantRepository.findById(restaurantID);
         List<RestaurantReview> myReviews = restaurant.getReviews();
 
@@ -34,5 +33,4 @@ public class RestController {
 
         restaurantRepository.save(restaurant);
     }
-
 }

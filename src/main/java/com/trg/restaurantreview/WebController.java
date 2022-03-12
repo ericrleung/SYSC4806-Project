@@ -83,4 +83,27 @@ public class WebController {
         }
         return "editReview";
     }
+
+    @GetMapping("/editrestaurant")
+    public String editRestaurant(Model model, @RequestParam(name="restaurantid", required=true) Long restaurantid) {
+        Restaurant restaurant =  restaurantRepository.findById(restaurantid).orElse(null);
+        model.addAttribute("restaurant", restaurant);
+
+        return "editRestaurant";
+    }
+
+    @PostMapping("/editingrestaurant")
+    public String editingReview(@RequestParam long restaurantID,
+                              @RequestParam String name, @RequestParam String phoneNumber,
+                              @RequestParam String address, @RequestParam String description){
+
+        Restaurant restaurant = restaurantRepository.findById(restaurantID);
+        restaurant.setName(name);
+        restaurant.setPhoneNumber(phoneNumber);
+        restaurant.setAddress(address);
+        restaurant.setDescription(description);
+
+        restaurantRepository.save(restaurant);
+        return "restaurantEdited";
+    }
 }
