@@ -148,6 +148,8 @@ public class WebController {
     @PostMapping("/deleterestaurant")
     public String deleteReview(Model model, @RequestParam(name="restaurantid", required=true) Long restaurantid) {
         restaurantRepository.deleteById(restaurantid);
+        ArrayList<Restaurant> restaurants = (ArrayList<Restaurant>) restaurantRepository.findAll();
+        model.addAttribute("restaurants", restaurants);
         return "displayRestaurants";
     }
 
