@@ -14,12 +14,13 @@ public class RestController {
     private RestaurantReviewRepository restaurantReviewRepository;
 
     @PostMapping("/addingReview")
-    public void addingReview(@RequestParam long restaurantID,
+    public String addingReview(@RequestParam long restaurantID,
                              @RequestParam String message, @RequestParam int rating, @RequestParam String reviewerName){
         RestaurantReview newReview = new RestaurantReview(rating, message, reviewerName);
         Restaurant restaurant = restaurantRepository.findById(restaurantID);
         restaurant.addReview(newReview);
         restaurantRepository.save(restaurant);
+        return "reviewCreated";
     }
 
 }
