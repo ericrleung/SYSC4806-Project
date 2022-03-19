@@ -55,9 +55,10 @@ public class ControllerTest {
         this.mvc.perform((post("/createrestaurant")
                 .param("name", "sampleRestaurant")
                 .param("address", "1125 ColonelBy Drive")
-                .param("phoneNumber", "613-123-4567")));
+                .param("phoneNumber", "613-123-4567")))
+                .andDo(print());
         this.mvc.perform(post("/restaurantreviews")
-                        .param("restaurantid", "4")
+                        .param("restaurantid", "5")
                         .param("name", "newSampleRestaurant")
                         .param("phoneNumber", "123-456-789")
                         .param("address", "1123 Colonel By Drive")
