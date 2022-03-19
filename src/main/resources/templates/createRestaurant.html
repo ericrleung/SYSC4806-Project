@@ -7,6 +7,9 @@
 </head>
 <body>
 <h1>Add Restaurant</h1>
+<button>
+    <a th:href="@{/}"/>Back</a>
+</button>
 <form name="AddRestaurant" action="#" th:action="@{/createrestaurant}" th:object="${restaurant}" method="post" onsubmit="return validateForm()">
     <p>Name: <input type="text" th:field="*{name}" required/></p>
     <p>Address: <input id="address" type="text" th:field="*{address}"/></p>
