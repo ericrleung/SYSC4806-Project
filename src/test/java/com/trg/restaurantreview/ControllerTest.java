@@ -56,6 +56,23 @@ public class ControllerTest {
 
     }
 
+    @Test
+    public void addRestaurantReview(){
+
+    }
+
+    @Test
+    public void editRestaurantReview(){
+
+    }
+
+
+    @Test
+    public void removeRestaurantReview(){
+
+
+    }
+
 }
 
 
