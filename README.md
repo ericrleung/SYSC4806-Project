@@ -41,6 +41,12 @@ Link to website: https://resto-reviewz.herokuapp.com/
 
 
 # Sprint Plan
+## Sprint 3 (Milestone 3)
+- Filter reviews by rating
+- Filter restauarnts alphabetically
+- Add URL to restaurant webpage
+- Server-side input validation
+
 ## Sprint 2 (Milestone 2)
 - More Test Cases (e.g. REST endpoints, Controller)
 - Remove Reviews
