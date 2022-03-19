@@ -50,10 +50,20 @@ public class ControllerTest {
                 .andExpect(content().string(containsString("Restaurant Reviews")));
     }
 
-
     @Test
     public void testEditRestaurant() throws Exception {
-
+        this.mvc.perform((post("/createrestaurant")
+                .param("name", "sampleRestaurant")
+                .param("address", "1125 ColonelBy Drive")
+                .param("phoneNumber", "613-123-4567")));
+        this.mvc.perform(post("/restaurantreviews")
+                        .param("restaurantid", "4")
+                        .param("name", "newSampleRestaurant")
+                        .param("phoneNumber", "123-456-789")
+                        .param("address", "1123 Colonel By Drive")
+                        .param("description", "this is a new description"))
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(content().string(containsString("Restaurant Reviews")));
     }
 
     @Test
@@ -65,7 +75,6 @@ public class ControllerTest {
     public void editRestaurantReview(){
 
     }
-
 
     @Test
     public void removeRestaurantReview(){
