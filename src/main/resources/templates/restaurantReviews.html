@@ -27,7 +27,7 @@
             <p th:text="'Name: ' + ${review.getReviewerName()}"/>
             <p th:text="'Rating: ' + ${review.getRating()}"/>
             <p th:text="'Message: ' + ${review.getMessage()}"/>
-            <button>
+            <button style="margin-bottom:5px;">
                 <a th:href="@{/editreview(restaurantid=${restaurant.getId()}, reviewid=${review.getId()})}"/>Edit Review</a>
             </button>
             <form action="/deletereview" method="post">
