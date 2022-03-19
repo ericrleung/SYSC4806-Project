@@ -107,8 +107,23 @@ public class ControllerTest {
     }
 
     @Test
-    public void removeRestaurantReview(){
-
+    public void removeRestaurantReview() throws Exception{
+        this.mvc.perform((post("/createrestaurant")
+                        .param("name", "sampleRestaurant")
+                        .param("address", "1125 ColonelBy Drive")
+                        .param("phoneNumber", "613-123-4567")))
+                .andDo(print());
+        this.mvc.perform(post("/addingReview")
+                        .param("restaurantID", String.valueOf(7))
+                        .param("rating", String.valueOf(5))
+                        .param("message", "hello")
+                        .param("reviewerName", "Yathu"))
+                .andDo(print());
+        this.mvc.perform(post("/deletereview")
+                        .param("restaurantid", "7")
+                        .param("reviewid", "5"))
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(content().string(containsString("sampleRestaurant")));
 
     }
 
