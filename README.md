@@ -6,6 +6,11 @@ The goal of this application is to create a website where users can publish and 
 Link to website: https://resto-reviewz.herokuapp.com/
 
 # Project State
+## 2022-03-19
+- Gave UI a better display (tables, padding, etc.)
+- Adding many MVC test cases
+
+
 ## 2022-03-12
 - Added ability to remove and edit restaurants/reviews
 - Fix some redirect issues
