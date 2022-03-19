@@ -58,7 +58,7 @@ public class ControllerTest {
                 .param("phoneNumber", "613-123-4567")))
                 .andDo(print());
         this.mvc.perform(post("/restaurantreviews")
-                        .param("restaurantid", "5")
+                        .param("restaurantid", "6")
                         .param("name", "newSampleRestaurant")
                         .param("phoneNumber", "123-456-789")
                         .param("address", "1123 Colonel By Drive")
@@ -68,8 +68,20 @@ public class ControllerTest {
     }
 
     @Test
-    public void addRestaurantReview(){
-
+    public void addRestaurantReview() throws Exception {
+        this.mvc.perform((post("/createrestaurant")
+                        .param("name", "sampleRestaurant")
+                        .param("address", "1125 ColonelBy Drive")
+                        .param("phoneNumber", "613-123-4567")))
+                .andDo(print());
+        System.out.println("GOT HERE");
+        this.mvc.perform(post("/addingReview")
+                        .param("restaurantID", String.valueOf(4))
+                        .param("rating", String.valueOf(5))
+                        .param("message", "hello")
+                        .param("reviewerName", "Yathu"))
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(content().string(containsString("Review Added")));
     }
 
     @Test
