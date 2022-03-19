@@ -8,6 +8,10 @@
 <body>
 <h1>Create a Review for Restaurant <p th:text="${restaurant.getName()}"></p></h1>
 
+<button>
+    <a th:href="@{/restaurantreviews?restaurantid={id}(id=${restaurant.getId()})}"/>Back</a>
+</button>
+
 <form action="/addingReview" method="post" onsubmit="return validateForm()">
 
 
