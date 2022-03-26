@@ -7,10 +7,14 @@ Link to website: https://resto-reviewz.herokuapp.com/
 Link to CircleCI: https://app.circleci.com/pipelines/github/ericrleung/SYSC4806-Project
 
 # Project State
+## 2022-03-26
+- Server-side input validation
+- Filter reviews by rating
+- Filter reviews alphabetically 
+
 ## 2022-03-19
 - Gave UI a better display (tables, padding, etc.)
 - Adding many MVC test cases
-
 
 ## 2022-03-12
 - Added ability to remove and edit restaurants/reviews
