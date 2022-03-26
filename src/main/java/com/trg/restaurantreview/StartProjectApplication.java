@@ -26,7 +26,7 @@ public class StartProjectApplication {
 
             RestaurantReview r2 = new RestaurantReview(1, "Terrible Food", "Anil");
 
-            Restaurant resto1 = new Restaurant("L'academie", "233 Carleton Drive", "455-899-6754", "Fancy French Cuisine");
+            Restaurant resto1 = new Restaurant("L'academie", "233 Carleton Drive", "455-899-6754", "Fancy French Cuisine", "");
 
             resto1.addReview(r1);
             resto1.addReview(r2);

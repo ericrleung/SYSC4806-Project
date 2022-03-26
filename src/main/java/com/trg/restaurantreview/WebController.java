@@ -98,13 +98,15 @@ public class WebController {
                               @RequestParam(required = false) String name, @RequestParam(required = false) String phoneNumber,
                               @RequestParam(required = false) String address, @RequestParam(required = false) String description,
                                     @RequestParam(required = false) String reviewerName,@RequestParam(required = false) Integer rating,
-                                    @RequestParam(required = false) String message, @RequestParam(required = false) Long reviewID){
+                                    @RequestParam(required = false) String message, @RequestParam(required = false) String website,
+                                    @RequestParam(required = false) Long reviewID){
         Restaurant restaurant = restaurantRepository.findById(restaurantID).orElse(null);
 
         if (name != null) {
         restaurant.setName(name);
         restaurant.setPhoneNumber(phoneNumber);
         restaurant.setAddress(address);
+        restaurant.setWebsite(website);
         restaurant.setDescription(description);
     } else {
         List<RestaurantReview> myReviews = restaurant.getReviews();
