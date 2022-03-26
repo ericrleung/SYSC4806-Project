@@ -16,6 +16,9 @@ import java.util.regex.Pattern;
 @Controller
 public class WebController {
 
+    Pattern addressPattern = Pattern.compile("[0-9]+\\s.+");
+    Pattern phonePattern = Pattern.compile("^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$");
+
     @Autowired
     RestaurantRepository restaurantRepository;
 
@@ -34,9 +37,6 @@ public class WebController {
 
     @PostMapping("/createrestaurant")
     public String restaurantCreated(@ModelAttribute Restaurant restaurant, Model model){
-        Pattern addressPattern = Pattern.compile("[0-9]+\\s.+");
-        Pattern phonePattern = Pattern.compile("^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$");
-
 
         if(restaurant.getName().isEmpty() || !addressPattern.matcher(restaurant.getAddress()).find() || !phonePattern.matcher(restaurant.getPhoneNumber()).find()) {
             return "error";
@@ -67,6 +67,9 @@ public class WebController {
     @PostMapping("/addingReview")
     public String addingReview(Model model, @RequestParam long restaurantID,
                              @RequestParam String message, @RequestParam int rating, @RequestParam String reviewerName) {
+        if(rating < 1 || rating > 5) {
+            return "error";
+        }
         RestaurantReview newReview = new RestaurantReview(rating, message, reviewerName);
         Restaurant restaurant = restaurantRepository.findById(restaurantID);
         restaurant.addReview(newReview);
@@ -110,10 +113,6 @@ public class WebController {
         Restaurant restaurant = restaurantRepository.findById(restaurantID).orElse(null);
 
         if (name != null) {
-            Pattern addressPattern = Pattern.compile("[0-9]+\\s.+");
-            Pattern phonePattern = Pattern.compile("^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$");
-
-
             if(restaurant.getName().isEmpty() || !addressPattern.matcher(restaurant.getAddress()).find() || !phonePattern.matcher(restaurant.getPhoneNumber()).find()) {
                 return "error";
             }
