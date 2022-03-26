@@ -20,13 +20,20 @@
 <button>
     <a th:href="@{/}"/>Back</a>
 </button>
-
-<table class = "table table-striped" title>
+<select id="mylist" onchange="myFunction()" class='form-control'>
+    <option>All</option>
+    <option>5</option>
+    <option>4</option>
+    <option>3</option>
+    <option>2</option>
+    <option>1</option>
+</select>
+<table id="myTable" class = "table table-striped" title>
     <caption>Reviews</caption>
     <tr th:each="review : ${reviews}">
         <td>
             <p th:text="'Name: ' + ${review.getReviewerName()}"/>
-            <p th:text="'Rating: ' + ${review.getRating()}"/>
+            <p class="rating" th:text="'Rating: ' + ${review.getRating()}"/>
             <p th:text="'Message: ' + ${review.getMessage()}"/>
             <button style="margin-bottom:5px;">
                 <a th:href="@{/editreview(restaurantid=${restaurant.getId()}, reviewid=${review.getId()})}"/>Edit Review</a>
@@ -39,5 +46,6 @@
         </td>
     </tr>
 </table>
+<script src="filterReviews.js"></script>
 </body>
 </html>
