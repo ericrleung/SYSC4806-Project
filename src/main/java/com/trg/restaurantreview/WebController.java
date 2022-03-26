@@ -110,6 +110,13 @@ public class WebController {
         Restaurant restaurant = restaurantRepository.findById(restaurantID).orElse(null);
 
         if (name != null) {
+            Pattern addressPattern = Pattern.compile("[0-9]+\\s.+");
+            Pattern phonePattern = Pattern.compile("^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$");
+
+
+            if(restaurant.getName().isEmpty() || !addressPattern.matcher(restaurant.getAddress()).find() || !phonePattern.matcher(restaurant.getPhoneNumber()).find()) {
+                return "error";
+            }
         restaurant.setName(name);
         restaurant.setPhoneNumber(phoneNumber);
         restaurant.setAddress(address);
