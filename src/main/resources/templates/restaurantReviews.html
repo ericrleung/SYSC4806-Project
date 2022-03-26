@@ -20,8 +20,15 @@
 <button>
     <a th:href="@{/}"/>Back</a>
 </button>
-
-<table class = "table table-striped" title>
+<select id="mylist" onchange="myFunction()" class='form-control'>
+    <option>All</option>
+    <option>5</option>
+    <option>4</option>
+    <option>3</option>
+    <option>2</option>
+    <option>1</option>
+</select>
+<table id="myTable" class = "table table-striped" title>
     <caption>Reviews</caption>
     <tr th:each="review : ${reviews}">
         <td>
@@ -39,5 +46,6 @@
         </td>
     </tr>
 </table>
+<script src="filterReviews.js"></script>
 </body>
 </html>
