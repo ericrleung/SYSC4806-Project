@@ -5,7 +5,7 @@ var websiteField = document.getElementById("web");
 function validateForm() {
   let addressPattern = new RegExp("[0-9]+\\s.+");
   let phonePattern = new RegExp("^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$");
-  let websitePattern = new RegExp("[0-9a-z]+\\.[-_0-9a-z]+\\.[0-9a-z]+$");
+  let websitePattern = new RegExp("[0-9a-zA-Z]+\\.[-_0-9a-zA-Z]+\\.[0-9a-zA-Z]+$");
   console.log(!addressPattern.test(addressField.value))
   console.log(!phonePattern.test(phoneField.value))
   console.log(!websitePattern.test(websiteField.value))
