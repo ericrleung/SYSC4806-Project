@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Pattern;
 
 @Controller
 public class WebController {
@@ -33,6 +34,13 @@ public class WebController {
 
     @PostMapping("/createrestaurant")
     public String restaurantCreated(@ModelAttribute Restaurant restaurant, Model model){
+        Pattern addressPattern = Pattern.compile("[0-9]+\\s.+");
+        Pattern phonePattern = Pattern.compile("^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$");
+
+
+        if(restaurant.getName().isEmpty() || !addressPattern.matcher(restaurant.getAddress()).find() || !phonePattern.matcher(restaurant.getPhoneNumber()).find()) {
+            return "error";
+        }
         restaurantRepository.save(restaurant);
         return "restaurantCreated";
     }
