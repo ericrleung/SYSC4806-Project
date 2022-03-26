@@ -11,6 +11,8 @@ public class Restaurant {
     private String address;
     private String phoneNumber;
     private String description;
+    private String website;
+
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<RestaurantReview> reviews;
 
@@ -18,11 +20,12 @@ public class Restaurant {
         this.reviews = new ArrayList<>();
     } //javabeans convention
 
-    public Restaurant(String name, String address, String phoneNumber, String description){
+    public Restaurant(String name, String address, String phoneNumber, String description, String website){
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.description = description;
+        this.website = website;
         this.reviews = new ArrayList<>();
     }
 
@@ -72,6 +75,14 @@ public class Restaurant {
 
     public List<RestaurantReview> getReviews() {
         return this.reviews;
+    }
+
+    public String getWebsite() {
+        return this.website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
     public double getRating() {

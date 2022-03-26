@@ -57,6 +57,11 @@ public class RestaurantTest {
         assertEquals(restaurant.getReviews(), new ArrayList<RestaurantReview>(Arrays.asList(review1, review2)));
     }
 
+    @Test
+    public void testWebsite(){
+        restaurant.setWebsite("www.theWorks.com");
+        assertEquals(restaurant.getWebsite(), "www.theWorks.com");
+    }
 
 
 }
