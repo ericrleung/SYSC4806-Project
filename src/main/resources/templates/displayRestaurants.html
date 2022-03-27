@@ -10,12 +10,14 @@
 <h1>Restaurant Reviews</h1>
 <button onclick="window.location.href = '/createrestaurant';"> Create Restaurant
 </button>
-<table class = "table table-striped">
+<button onclick="filterAlphabetically()">Filter Restaurants Alphabetically</button>
+<button onclick="filterByRating()">Filter Restaurants By Rating</button>
+<table id="myTable" class = "table table-striped">
     <tr>
         <th> Restaurants </th>
         <th> Ratings </th>
     </tr>
-    <tr th:each="restaurant : ${restaurants}">
+    <tr class="restaurant" th:each="restaurant : ${restaurants}">
         <td>
             <a th:href="@{/restaurantreviews?restaurantid={id}(id=${restaurant.getId()})}" th:text="${restaurant.getName()}"/>
         </td>
@@ -31,5 +33,7 @@
     </tr>
 
 </table>
+<script src="filterRestaurants.js"></script>
+<script src="filterByRating.js"></script>
 </body>
 </html>
