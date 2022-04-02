@@ -1,7 +1,6 @@
 function filterLowToHigh(){
-    var input, filter, table, tr, td, i;
+    var input, table, tr, td, i;
       input = document.getElementById("mylist");
-      filter = input.value.toUpperCase();
       table = document.getElementById("myTable");
       tr = table.getElementsByTagName("tr");
 
@@ -20,7 +19,7 @@ function filterLowToHigh(){
                   x = rows[i].getElementsByTagName("TD")[0].getElementsByClassName("rating")[0].innerHTML
                   y = rows[i + 1].getElementsByTagName("TD")[0].getElementsByClassName("rating")[0].innerHTML
                   //check if the two rows should switch place:
-                  if (x.toLowerCase() > y.toLowerCase()) {
+                  if (x > y) {
                       //if so, mark as a switch and break the loop:
                       shouldSwitch = true;
                       break;
