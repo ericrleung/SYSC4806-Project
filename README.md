@@ -7,10 +7,16 @@ Link to website: https://resto-reviewz.herokuapp.com/
 Link to CircleCI: https://app.circleci.com/pipelines/github/ericrleung/SYSC4806-Project
 
 # Project State
+## 2022-04-02
+- Order reviews by rating low to high
+- Order reviews by rating high to low
+- Application finished
+
 ## 2022-03-26
 - Server-side input validation
-- Filter reviews by rating
-- Filter reviews alphabetically 
+- Filter restaurants by rating
+- Order resaturants alphabetically 
+- Filter review by specific rating
 
 ## 2022-03-19
 - Gave UI a better display (tables, padding, etc.)
