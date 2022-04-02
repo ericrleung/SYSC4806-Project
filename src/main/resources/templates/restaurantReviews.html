@@ -29,6 +29,7 @@
     <option>2</option>
     <option>1</option>
 </select>
+<button onclick="filterLowToHigh()">Filter Low to High</button>
 <table id="myTable" class = "table table-striped" title>
     <caption>Reviews</caption>
     <tr th:each="review : ${reviews}">
@@ -48,5 +49,6 @@
     </tr>
 </table>
 <script src="filterReviews.js"></script>
+<script src="filterLowToHigh.js"></script>
 </body>
 </html>

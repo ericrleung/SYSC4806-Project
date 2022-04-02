@@ -1,9 +1,8 @@
 function filterLowToHigh(){
-    var input, table, tr, td, i;
+    var input, table, tr, td, i, shouldSwitch;
       input = document.getElementById("mylist");
       table = document.getElementById("myTable");
       tr = table.getElementsByTagName("tr");
-
       switching = true;
       while (switching) {
               //start by saying: no switching is done:
@@ -11,7 +10,7 @@ function filterLowToHigh(){
               rows = table.rows;
               /*Loop through all table rows (except the
               first, which contains table headers):*/
-              for (i = 1; i < (rows.length - 1); i++) {
+              for (i = 0; i < (rows.length - 1); i++) {
                   //start by saying there should be no switching:
                   shouldSwitch = false;
                   /*Get the two elements you want to compare,
